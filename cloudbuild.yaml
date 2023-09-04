@@ -6,9 +6,6 @@ steps:
     args: ['install']
     dir: 'sweep/self_deploy'
 
-images:
-  - 'gcr.io/$PROJECT_ID/upmortem-sweep'
-
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/$PROJECT_ID/upmortem-sweep']
 
@@ -20,7 +17,7 @@ images:
         'deploy',
         'upmortem-sweep',
         '--image',
-        'gcr.io/cloud-builders/gcloud',
+        'gcr.io/$PROJECT_ID/upmortem-sweep',
         '--region',
         'us-central1',
         '--platform',
@@ -31,3 +28,4 @@ images:
 options:
   env: ['PORT=3000']
   logging: CLOUD_LOGGING_ONLY
+
