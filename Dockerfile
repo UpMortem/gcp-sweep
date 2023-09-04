@@ -14,6 +14,7 @@ WORKDIR /app/sweep/self_deploy
 RUN npm install
 
 # Expose the port your application will run on
+ENV PORT=3000
 EXPOSE 3000
 
 # Define the command to start your application
