@@ -15,6 +15,7 @@ steps:
       '--region', 'us-central1', # Replace with your desired region
       '--platform', 'managed',
       '--allow-unauthenticated', # Remove this line if you want authentication
+      '--port=3000'
     ]
 
 
