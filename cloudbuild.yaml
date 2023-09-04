@@ -6,6 +6,9 @@ steps:
     args: ['install']
     dir: 'sweep/self_deploy'
 
+images:
+  - 'gcr.io/$PROJECT_ID/upmortem-sweep'
+
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/$PROJECT_ID/upmortem-sweep']
 
@@ -22,7 +25,6 @@ steps:
         'us-central1',
         '--platform',
         'managed',
-        '--min-instances=2',
       ]
 
 
