@@ -1,7 +1,6 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'gcr.io/$PROJECT_ID/develop-up-sweep', '.']
-    dir: '/' # Replace with the actual path to your Dockerfile
 
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/$PROJECT_ID/develop-up-sweep']
