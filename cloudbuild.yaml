@@ -6,12 +6,25 @@ steps:
     args: ['install']
     dir: 'sweep/self_deploy'
 
-  - name: 'gcr.io/cloud-builders/npm'
-    args: ['start']
-    dir: 'sweep/self_deploy'
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/upmortem-sweep']
 
-images:
-  - 'gcr.io/$PROJECT_ID/upmortem-sweep'
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      [
+        'beta',
+        'run',
+        'deploy',
+        'upmortem-sweep',
+        '--image',
+        'gcr.io/cloud-builders/gcloud',
+        '--region',
+        'us-central1',
+        '--platform',
+        'managed',
+        '--min-instances=2',
+      ]
+
 
 options:
   env: ['PORT=3000']
