@@ -18,5 +18,6 @@ ENV PORT=3000
 EXPOSE 3000
 
 # Define the command to start your application
+WORKDIR /app/sweep/self_deploy
 CMD ["npm", "start"]
 
