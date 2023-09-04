@@ -1,0 +1,17 @@
+steps:
+  - name: 'gcr.io/cloud-builders/git'
+    args: ['clone', 'https://github.com/sweepai/sweep']
+
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install']
+    dir: 'sweep/self_deploy'
+
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['start']
+    dir: 'sweep/self_deploy'
+
+images:
+  - 'gcr.io/$PROJECT_ID/upmortem-sweep'
+
+options:
+  env: ['PORT=3000']
