@@ -8,7 +8,7 @@ WORKDIR /app
 RUN git clone https://github.com/sweepai/sweep .
 
 # Navigate to the 'self_deploy' directory
-WORKDIR /app/sweep/self_deploy
+WORKDIR /app/self_deploy
 
 # Install Node.js dependencies
 RUN npm install
@@ -18,6 +18,6 @@ ENV PORT=3000
 EXPOSE 3000
 
 # Define the command to start your application
-WORKDIR /app/sweep/self_deploy
+WORKDIR /app/self_deploy
 CMD ["npm", "start"]
 
