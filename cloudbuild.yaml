@@ -16,6 +16,13 @@ steps:
       '--platform', 'managed',
       '--allow-unauthenticated', # Remove this line if you want authentication
       '--port=3000'
+      '--set-env-vars=APP_ID=387016,
+        WEBHOOK_PROXY_URL=https://smee.io/EeGJ7GSiwztXCYNR,
+        GITHUB_CLIENT_ID=Iv1.b8a073e931d1d7a3,
+        OPENAI_DO_HAVE_32K_MODEL_ACCESS=false,
+        SENTENCE_TRANSFORMERS_MODEL=sentence-transformers/all-MiniLM-L6-v2',
+      '--set-secrets=GITHUB_APP_PEM=GITHUB_APP_PEM:latest,
+        OPENAI_API_KEY=OPENAI_API_KEY:latest',
     ]
 
 
