@@ -15,7 +15,7 @@ steps:
       '--region', 'us-central1', # Replace with your desired region
       '--platform', 'managed',
       '--allow-unauthenticated', # Remove this line if you want authentication
-      '--port=3000'
+      '--port=3000',
       '--set-env-vars=APP_ID=387016,
         WEBHOOK_PROXY_URL=https://smee.io/EeGJ7GSiwztXCYNR,
         GITHUB_CLIENT_ID=Iv1.b8a073e931d1d7a3,
