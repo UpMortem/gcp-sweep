@@ -1,21 +1,28 @@
 steps:
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/$PROJECT_ID/develop-up-sweep', '.']
+  # Pull the sweepai/sweep:latest image from Docker Hub (or wherever it resides)
+  - name: 'docker'
+    args: ['pull', 'sweepai/sweep:latest']
 
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/develop-up-sweep']
+  # Tag the pulled image for Google Container Registry (GCR)
+  - name: 'docker'
+    args: ['tag', 'sweepai/sweep:latest', 'gcr.io/$PROJECT_ID/sweep:latest']
 
+  # Push the image to GCR
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/sweep:latest']
+
+  # Deploy the image to Cloud Run
   - name: 'gcr.io/cloud-builders/gcloud'
     args: [
       'beta',
       'run',
       'deploy',
       'develop-up-sweep', # Replace with your desired Cloud Run service name
-      '--image', 'gcr.io/$PROJECT_ID/develop-up-sweep',
+      '--image', 'gcr.io/$PROJECT_ID/sweep:latest',
       '--region', 'us-central1', # Replace with your desired region
       '--platform', 'managed',
       '--allow-unauthenticated', # Remove this line if you want authentication
-      '--port=3000',
+      '--port=8080',
       '--set-env-vars=APP_ID=387016,
         WEBHOOK_PROXY_URL=https://smee.io/EeGJ7GSiwztXCYNR,
         GITHUB_CLIENT_ID=Iv1.b8a073e931d1d7a3,
@@ -28,4 +35,4 @@ steps:
 
 options:
   logging: CLOUD_LOGGING_ONLY
-  env: ['PORT=3000']
+  env: ['PORT=8080']
