@@ -21,6 +21,7 @@ steps:
       '--image', 'gcr.io/$PROJECT_ID/sweep:latest',
       '--region', 'us-central1', # Replace with your desired region
       '--platform', 'managed',
+      '--memory', '8Gi',
       '--allow-unauthenticated', # Remove this line if you want authentication
       '--port=8080',
       '--set-env-vars=APP_ID=387016,
