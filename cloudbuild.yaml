@@ -22,6 +22,7 @@ steps:
       '--region', 'us-central1', # Replace with your desired region
       '--platform', 'managed',
       '--memory', '8Gi',
+      '--cpu', '2',
       '--allow-unauthenticated', # Remove this line if you want authentication
       '--port=8080',
       '--set-env-vars=APP_ID=387016,
