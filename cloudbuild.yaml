@@ -28,7 +28,7 @@ steps:
       '--set-env-vars=APP_ID=387016,
         OPENAI_DO_HAVE_32K_MODEL_ACCESS=false,
         SENTENCE_TRANSFORMERS_MODEL=sentence-transformers/all-MiniLM-L6-v2,
-        VECTOR_EMBEDDING_SOURCE=openai,'
+        VECTOR_EMBEDDING_SOURCE=openai',
       '--set-secrets=GITHUB_APP_PEM=GITHUB_APP_PEM:latest,
         OPENAI_API_KEY=OPENAI_API_KEY:latest',
     ]
