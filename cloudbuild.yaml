@@ -23,7 +23,7 @@ steps:
       '--platform', 'managed',
       '--memory', '8Gi',
       '--cpu', '4',
-      '--no-allow-unauthenticated', # Remove this line if you want authentication
+      '--allow-unauthenticated', # Remove this line if you want authentication
       '--port=8080',
       '--vpc-connector',
       'upmortem-sweep-connector',
