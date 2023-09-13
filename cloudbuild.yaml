@@ -23,8 +23,10 @@ steps:
       '--platform', 'managed',
       '--memory', '8Gi',
       '--cpu', '4',
-      '--allow-unauthenticated', # Remove this line if you want authentication
+      '--no-allow-unauthenticated', # Remove this line if you want authentication
       '--port=8080',
+      '--vpc-connector',
+      'upmortem-sweep-connector',
       '--set-env-vars=APP_ID=387016,
         OPENAI_DO_HAVE_32K_MODEL_ACCESS=false,
         SENTENCE_TRANSFORMERS_MODEL=sentence-transformers/all-MiniLM-L6-v2,
